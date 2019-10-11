@@ -1,0 +1,551 @@
+./countdown 12
+userdel --help
+man userdel
+rpm --help | less
+find / -name "host"
+find / -name "*host*"
+find / -size +100M
+find / -size +100M -name "resour*"
+find / -size +100M -name "resour*" 2>/dev/null
+find / -user linda
+find / -user linda -exec cp {} /root \;
+ls
+ls -l
+find / -user linda -exec ls -l {} \;
+grep linda /etc/* 2>/dev/null
+grep -l linda /etc/* 2>/dev/null
+grep -v linda /etc/* 2>/dev/null
+ps aux | grep ssh
+ps aux | grep ssh | grep -v grep
+history
+history | less
+history
+history | less
+ls -l $(which vim)
+which vim
+ls -l $(which vi)
+vim /etc/hosts
+vimtutor
+cat /etc/passwd
+less /etc/passwd
+ps aux | grep chrony
+find / -user chrony
+history
+id student
+tail -n 1 /etc/passwd
+tail -n 1 /etc/shadow
+tail -n 2 /etc/shadow
+vim /etc/group
+grep student /etc/passwd /etc/group
+vim /etc/login.defs 
+cd /etc/skel
+ls
+ls -a
+touch hello
+useradd bob
+ls -l /home/bob
+ls -al /home/bob
+passwd --help
+cd
+mkdir -p /data/account
+mkdir -p /data/sales
+cd /data
+ls -l
+id
+groupadd sales
+groupadd account
+useradd -G anna account
+useradd -G account anna
+id anna
+useradd -G account anouk
+id anna
+id linda
+usermod -aG sales linda
+usermod -aG wheel lisa
+id lisa
+usermod -G sales lisa
+id lisa
+usermods -aG wheel lisa
+usermod -aG wheel lisa
+ls -l
+chgrp account account
+ls -l
+chown linda account
+ls -l
+chown anna:account account
+ls -kl
+chown linda.sales sales
+ls -l
+chmod g+w sales
+ls -l
+chmod 770 account/
+ls -l
+chmod o-rx sales
+ls -l
+history
+cd /home/linda
+ls -l
+touch rootfile
+ls -l
+su - linda
+cd /data
+chown root *
+ls -l
+id linda
+su - linda
+ls
+ls -l
+chmod 660 sales
+cd sales/
+cd ..
+su - linda
+ls
+ls -l
+chmod 770 *
+find / -user linda 2>/dev/null
+ls -l
+cd sales
+echo hello > rootile
+ls -l
+chmod 640 rootile 
+su - linda
+cd /home/linda
+vim runme
+chmod +x runme 
+su - linda
+chmod u+s runme 
+ls -l
+chmod 0755 runme 
+ls -l
+find / -perm /4000
+ls -l /usr/bin/passwd
+ls -l /etc/shadow
+cd /data
+su - linda
+chmod g+s *
+ls -l
+su - lisa
+cd sales
+echo wortel > rootfile
+ls -l
+ls -l /usr/bin/passwd
+ls -l /etc/shadow
+su - lisa
+chmod +t .
+ls -ld .
+su - lisa
+ls -ld /tmp
+su - linda
+ls -ld /data/sales /tmp
+chmod o+x /data/sales
+ls -ld /data/sales /tmp
+lsattr *
+chattr +i helloworld 
+lsattr *
+rm -f helloworld 
+chattr -i helloworld 
+cd
+./countdown 12
+cd /data
+ls -l
+getfacl sales
+setfacl -m -R g:account:rx sales
+setfacl -m -Rg:account:rx sales
+setfacl -R -m g:account:rx sales
+getfacl sales
+cd sales/
+ls
+cat rootfile 
+getfacl rootfile 
+man setfacl
+setfacl -R -x g:account:rx sales
+setfacl -R -x g:account sales
+setfacl -R -x g:account .
+getfacl rootfile 
+cd ..
+setfacl -R -m g:account:rX sales
+getfacl sales/rootfile 
+history
+su - linda
+setfacl -m d:g:account:rx /data/sales
+getfacl sales
+su - linda
+history
+cd
+df -h
+lsblk
+dd if=/dev/sr0 of=/centos8.iso bs=1M
+mkdir /repo
+vim /etc/fstab
+ls -l /repo
+mount -a
+ls -l /repo
+cd /repo/
+ls
+cd BaseOS/
+ls
+ls Packages/
+cd ..
+ls AppStream/Packages/
+ls
+cd /etc/yum.repos.d/
+ls
+rm -f *
+pwd
+ls
+yum repolist
+vim base.repo
+vim appstream.repo
+yum repolist
+man dnf.conf
+cd
+yum search nmap
+yum install nmap
+yum search sealert
+yum provides */sealert
+./countdown 12
+man yum.conf
+cd /etc/yum.repos.d/
+vim base.repo 
+yum module list
+yum module info virt
+yum module list
+yum module info postgresql
+yum module info postgresql  | less
+yum module info --profile container-tools
+yum module info --profile postgresql
+yum module list postgresql
+yum module install postgresql:9.6
+yum module install postgresql:9.6/devel
+yum module install postgresql:9.6
+yum install httpd
+history
+ip addr show
+cd
+ifconfig
+man ifconfig
+ip addr add dev ens33 10.0.0.10/24
+ip addr
+ifconfig
+ifconfig -a
+ifconfig /all
+rpm -qf $(which ifconfig)
+rpm -ql net-tools
+yum remove net-tools
+rpm -ql net-tools
+ss -tunap | less
+ip addr add dev ens33 10.122.13.14/24
+ip route show
+ip route del default via 192.168.4.2
+ping 8.8.8.8
+ip route add default via 192.168.4.2
+ping 8.8.8.8
+history
+systemctl status NetworkManager
+cd /etc/sysconfig/network-scripts/
+ls
+vim ifcfg-ens33 
+nmtui
+ip a
+yum install -y bash-completion
+nmcli connection modify ens33 ipv4.addresses 192.168.4.239/24 ipv4.dns 192.168.4.2 ipv4.gateway 192.168.4.2 ipv4.method manual 
+nmcli connection up ens33 
+ip a
+history
+cd
+./countdown 12
+poweroff
+lsscsi
+lsblk
+gdisk /dev/sda
+fdisk /dev/sda
+lsblk
+mkfs.xfs /dev/sda3
+mount /dev/sda3 /mnt
+mount
+mount | grep '^/'
+vim /etc/fstab
+reboot
+mkdir /files
+cat /etc/fstab
+systemctl reboot
+xxd -l 512 /dev/sda
+fdisk /dev/sda
+partprobe
+reboot
+lsblk
+mkfs.xfs /dev/sda5
+fdisk /dev/sda
+lsblk
+mkfs.ext4 /dev/sda6
+vim /etc/fstab
+mkdir /xfs /ext4
+fdisk /dev/sda
+vim /etc/fstab
+reboot
+tail -n 2 /etc/fstab
+journalctl -xb
+lsblk
+fdisk -l /dev/sda
+tune2fs -L /dev/sda5
+tune2fs -l /dev/sda5
+tune2fs -l /dev/sda5 | less
+tune2fs --help
+tune2fs -L cow /dev/sda5
+tune2fs -l /dev/sda5 | less
+vim /etc/fstab
+systemctl reboot
+blkid
+history
+blkid
+vim /etc/fstab
+xfs_admin --help
+history
+file --help
+file -s /dev/sda
+gdisk /dev/sdb
+file -s /dev/sdb
+file -s /dev/sda
+cd /
+mount | grep '^/' 
+vim /etc/fstab
+file -s /dev/sda1
+file -s /dev/sda3
+groupadd students
+groupadd prof
+vim /etc/login.defs 
+cat /etc/passwd
+id anna
+usermod -aG profs anna
+groupadd profs
+usermod -aG profs anna
+usermod -aG profs anouk
+usermod -aG students lisa
+usermod -aG students linda
+id linda
+history
+mkdir /data/profs /data/students
+cd /data
+ls -l
+chgrp profs profs
+chgrp students students
+ls -l
+chmod 770 profs
+chmod 770 students/
+ls -l
+setfacl -R -m g:profs:rX student
+setfacl -R -m g:profs:rX students
+setfacl -m d:g:profs:rx students
+ls -l
+chmod 3770 profs
+chmod 3770 students
+ls -l
+chown anna profs
+chown anna students
+ls -l
+history
+cd
+./countdown 12
+systemctl status tuned
+tuned-adm list
+tuned-adm profile powersave
+tuned-adm active
+cd /usr/lib/tuned/
+ls
+cd powersave/
+ls
+vim tuned.conf 
+mkdir /etc/tuned/sander
+cp tuned.conf /etc/tuned/sander/
+tuned-adm list
+tuned-adm profile sander
+tuned-adm active
+cd
+lsblk
+fdisk /dev/sda
+lsblk
+mount /dev/sda6 /mnt
+mount | grep mtn
+mount | grep mnt
+fdisk /dev/sda
+lsblk
+cat /proc/partitions 
+man pvcreate
+pvcreate --help
+pvcreate /dev/sda7
+pvs
+vgcreate --help | less
+vgcreate vgdata -s 8M /dev/sda7
+cvgs
+vgs
+vgdisplay
+lvcreate -L 1G -n lvdata vgdata
+pvs
+lvcreate -l 127 lvdata vgdata
+lvcreate -l 127 -n lvdata vgdata
+history
+lvs
+mkfs.xfs /dev/vgdata/lvdata
+mount /dev/vgdata/lvdata /mnt
+mount
+ls -l /dev/mapper/vgdata-lvdata /dev/vgdata/lvdata 
+history
+top
+grep -i active /proc/meminfo 
+free  -m
+fdisk /dev/sda
+mkswap /dev/sda8
+free -m
+vim /etc/fstab
+swapon -a
+free -m
+lvs
+lvresize --help
+man lvresize
+lvresize -r -L +1G /dev/vgdata/lvdata
+pvs
+gdisk -l /dev/sdb
+vgextend vgdata /dev/sdb1
+vgs
+lvextend -r -L +500M /dev/vgdata/lvdata
+df -h
+umount /dev/mapper/vgdata-lvdata 
+mount /dev/mapper/vgdata-lvdata /mnt
+df -h
+history
+lvs
+./countdown 12
+rpm -qa 
+rpm -qa | grep bash
+yum install stratisd stratis-cli
+systemctl enable --now stratisd
+systemctl status stratisd
+stratis pool create mypool /dev/sdc
+stratis pool list
+stratis filesystem create mypool myfs1
+stratis fs list mypool
+mkdir /myfs1
+blkid
+mount UUID="c7e07741-f9c1-4617-bb07-07366916218d" /myfs1
+mount
+df -h
+stratis pool list
+stratis fs list
+stratis blockdev list mypool 
+history
+yum search stratis
+stratis pool list
+lsblk
+yum install vdo kmod-kvdo
+man vdo
+vdo create --name=vdo1 --device=/dev/sdd --vdoLogicalSize=1T
+mkfs.xfs -K /dev/mapper/vdo1
+ls /dev/mapper/
+cd /usr/share/doc/
+ls
+cd vdo/
+ls
+cd examples/
+s
+ls
+cd systemd/
+pwd
+ls
+mkdir /vdo1
+cp VDO.mount.example /etc/systemd/system/vdo1.mount
+vim /etc/systemd/system/vdo1.mount 
+systemctl daemon-reload
+systemctl enable --now vdo1.mount
+mount | grep vdo
+reboot
+history
+vdostats --human-readable
+./countdown 12
+fdisk /dev/sda
+reboot
+showmount -e 192.168.4.237
+vim /etc/fstab
+mount -a
+mkdir /nfsdata
+mount -a
+mount
+reboot
+mount 
+cd /run
+ls
+cd systemd/
+ls
+cd generator/
+ls
+vim files.mount 
+vim nfsdata.mount 
+cd
+history
+vim /etc/fstab
+cd /run/systemd/generator/
+ls
+cp nfsdata.mount /etc/systemd/system/
+pwd
+cd /etc/systemd/system/
+ls
+cd /usr/lib/systemd/system
+ls
+reboot
+systemctl list-units
+systemctl disable autofs
+mount
+vim /etc/auto.master
+systemctl enable autofs
+systemctl start autofs
+systemctl isolate multi-user.target
+mount
+history
+systemctl start graphical.target
+systemctl cat remote.mount
+systemctl cat sshd.service
+systemctl  edit sshd.service
+vim /usr/lib/systemd/system/sshd.service 
+systemctl daemon-reload
+kill -9 $(pidof sshd)
+systemctl status sshd
+systemctl get-default
+systemctl show-environment
+systemctl list-units
+runlevel
+who -r
+echo h > /proc/sysrq-trigger
+dmesg
+journalctl 
+journalctl -xb
+journalctl UNIT=sshd.service
+systemctl status sshd.service
+journalctl
+date
+mkdir /var/log/journal
+cd /var/log
+ls
+less messages 
+cd /boot/grub2/
+ls
+vim grub.cfg 
+ssh root@192.168.1.1
+ssh root@192.168.1.101
+ssh root@192.168.1.201
+history
+yum install git
+cd
+git clone https://github.com/sandervanvugt/rhcsa
+cd rhcsa/
+ls
+cd rhcsa
+ls
+exit
+./countdown 12
+systemctl list-dependencies
+systemctl isolate multi-user.target
+systemctl list-dependencies
+cd /etc/systemd/
+ls -l default.target
+cd system/
+ls -l default.target
+systemctl isolate graphical.target
