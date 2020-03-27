@@ -1,0 +1,538 @@
+systemctl isolate multi-user.target
+whomai
+whoami
+systemctl start graphical.target
+chvt 3
+ip a
+systemctl status sshd
+exit
+visudo
+id student
+usermod -aG wheel student
+id student
+exit
+visudo
+su - linda
+exit
+ls -l $(which vi) $(which vim)
+cd /
+man hier
+ls
+ls /home/
+ls /usr
+ls /boot
+ls /etc
+ls /var
+ls /var/log
+ls -l /dev
+ls
+cd
+ls -il /etc/hosts
+ln /etc/hosts myhosts
+ls -il /etc/hosts myhosts
+echo hello >> myhosts 
+ls -il /etc/hosts myhosts
+ln /boot/vmlinuz-4.18.0-80.el8.x86_64 mykernel
+ln -s /etc/hosts symhosts
+ls -il /etc/hosts myhosts symhosts 
+rm /etc/hosts
+cat myhosts 
+cat symhosts 
+ls -il /etc/hosts myhosts symhosts 
+ln myhosts /etc/hosts
+ls -il /etc/hosts myhosts symhosts 
+df -h
+unlink --help
+man useradd
+useradd --help
+useradd --help | less
+man lvcreate
+man -k user 
+man man
+man apropos
+man mandb
+mandb
+man -k user 
+man -k user | wc
+man -k user | grep 8
+history
+find / -name "hosts" 
+find / -name "*host*" 
+find / -size +500M
+find / -size +500M 2>/dev/null
+find / -user linda
+find / -user linda -exec ls -l {} \;
+grep linda /etc/*
+grep linda /etc/* 2>/dev/null
+git clone https://github.com/sandervanvugt/rhcsa
+history
+less /etc/passwd
+less /etc/group
+less /etc/shadow
+vim /etc/login.defs 
+vim /etc/default/useradd 
+cd /etc/skel/
+ls -l
+ls -al
+touch hello
+ls
+chage linda
+grep linda /etc/shadow
+passwd --help
+passwd -l linda
+grep linda /etc/shadow
+cat /etc/shadow
+cal 2020
+usermod --help
+grep linda /etc/shadow
+su - linda
+su - bob
+cd
+grep linda /etc/shadow
+vim /etc/login.defs 
+groupadd sales
+groupadd account
+groupadd --help
+useradd --help
+useradd lisa -G sales -p secret 
+grep lisa /etc/passwd
+grep lisa /etc/shadow
+passwd lisa
+usermod -aG sales linda
+id linda
+grep linda /etc/passwd
+useradd -G account anna
+useradd -G account anouk
+history
+ls -l /home/lisa
+usermod --help
+vim /etc/group
+adduser --help
+useradd --help
+ls -l $(which useradd) $(which adduser)
+ls -l
+mkdir /data/account
+mkdir -p /data/account
+mkdir -p /data/sales
+cd /data
+ls -l
+chgrp sales sales
+chgrp account account
+ls -l
+chmod 770 *
+ls -l
+pwd
+cd /home/linda
+touch rootfile
+ls -l
+su - linda
+pwd
+echo this is mine > rootnewfile
+su - linda
+ln /home/student/countdown /usr/local/bin/
+echo $PATH
+ln /home/student/countdown /usr/bin/
+countdown 12
+history
+pwd
+vim playme
+man rf
+man rm
+vim playme
+./playme
+ls -l
+chmod +x playme 
+./playme 
+cat playme 
+exit
+chmod u+s /home/linda/playme 
+ls -l /home/linda/playme 
+exit
+w
+chvt 5
+lsblk
+gdisk /dev/nvme0n1
+parted /dev/nvme0n1
+fdisk /dev/nvme0n1
+ssh root@192.168.4.200
+xxd -l 512 /dev/nvme0n1
+fdisk /dev/nvme0n1
+lscscsi
+lsblk
+cat /proc/partitions 
+mkfs.xfs /dev/nvme0n1p3
+mkdir /files
+vim /etc/fstab
+mount -a
+mount
+countdown 12
+tail -2 /etc/fstab
+history
+fdisk /dev/nvme0n1
+lsblk
+reboot
+lsblk
+mkfs.xfs /dev/nvme0n1p5
+mkfs.ext4 /dev/nvme0n1p6
+mkdir /ext
+mkdir /xfs
+vim /etc/fstab
+mount -a
+mount
+df -h
+df -h | grep -v tmpfs
+umount /xfs
+vim /etc/fstab
+fdisk /dev/nvme0n1
+reboot
+journalctl -xb
+lsblk
+blkid
+e2label --help
+tune2fs --help
+tune2fs -L ext4fs /dev/nvme0n1p5
+vim /etc/fstab
+mount -a
+systemctl reboot
+df -h
+xfs_admin
+xfs_admin -L bootfs /dev/nvme0n1p1
+umount /dev/nvme0n1p1
+xfs_admin -L bootfs /dev/nvme0n1p1
+mount -a
+blkid 
+history
+vim /etc/fstab
+lsblk
+tuned-adm list
+tuned-adm profile powersave
+tuned-adm list
+cd /usr/lib/tuned/powersave/
+ls
+cat tuned.conf 
+history
+tuned-adm list
+tuned-adm profile virtual-guest
+countdown 14
+history
+history | less
+cd
+fdisk /dev/nvme0n1
+pvcreate /dev/nvme0n1p6
+pvs
+vgcreate --help
+vgcreate vgdata /dev/nvme0n1p6
+vgs
+pvs
+lvcreate --help | less
+lvcreate -L 1G -n lvdata vgdata
+lvs
+vgs
+pvs
+mkfs.xfs /dev/vgdata/lvdata
+mkdir /lvdata
+vim /etc/fstab 
+mount -a
+df -h
+ls -l /dev/mapper/vgdata-lvdata /dev/vgdata/lvdata 
+history
+tail -1 /etc/fstab
+vgextend --help
+vgcreate --help
+vgcreate vgblah -s 8M /dev/whatever
+lvs
+df -h
+vgs
+fdisk /dev/nvme0n1
+vgextend vgdata /dev/nvme0n1p7
+vgs
+lvs
+df -h
+lvextend -l +50%FREE /dev/vgdata/lvdata
+lvs
+df -h
+xfs_growfs --help
+xfs_growfs /lvdata/
+df -h
+resize2fs --ehlp
+history
+lvrename --help
+lsblk
+cat /etc/fstab 
+xxd /dev/nvme0n1p6 | less
+fdisk /dev/nvme0n1
+vgcreate vgnew -s 8M /dev/nvme0n1p8
+vgs
+vgdisplay vgnew
+lvcreate -L 998M -n lvnew vgnew
+fdisk /dev/nvme0n1
+reboot
+history
+ countdown 12
+ps aux
+systemctl enable --now httpd
+ps aux | grep http
+ps Zaux | grep http
+ls -Zd /var/www
+ls -Z /var/www
+mkdir /web
+vim /web/index.html
+vim /etc/httpd/conf/httpd.conf 
+systemctl restart httpd
+curl http://localhost
+ls -Zd /web
+ps Zaux | grep http
+getenforce
+setenforce permissive
+curl http://localhost
+grep AVC /var/log/audit/audit.log 
+man semanage
+man semanage-fcontext
+semanage fcontext -a -t httpd_sys_content_t "/web(/.*)?"
+ls -Zd /web
+restorecon -Rv /web
+ls -Zd /web
+setenforce enforcing
+getenforce
+curl http://localhost
+grep sealert /var/log/messages
+sealert -l 146117b7-e674-459c-870e-575f00ceb288 | less
+grep sealert /var/log/messages
+sealert -l 60d9a6fa-7707-4009-b069-cbefcb137cad | less
+sealert -l 5b6439a4-6b93-48bc-aa2c-bfff3dd67203
+sealert -l 5b6439a4-6b93-48bc-aa2c-bfff3dd67203 | less
+grep sealert /var/log/messages
+sealert -l e88b685c-4027-455e-bd3c-3d167fddb49c | less
+history
+getsebool -a | grep ftp
+setsebool -P ftpd_anon_write on
+history
+poweroff
+lsblk
+yum install stratis-cli stratisd
+systemctl enable --now stratisd
+rpm -qa | grep bash-completion
+stratis pool create mypool /dev/nvme0n2
+stratis pool list
+stratis fs create mypool myfs1
+stratis fs create mypool myfs2
+stratis fs create mypool myfs3
+stratis fs list mypool 
+mkdir myfs1
+mkdir /myfs1
+mkdir /myfs2
+blkid
+stratis fs list 
+vim /etc/fstab
+mount -a
+df -h
+stratis pool list
+stratis fs list
+stratis blockdev list
+history
+systemctl list-units -t target
+systemctl status httpd
+systemctl stop httpd
+systemctl status httpd
+systemctl start httpd
+systemctl disable --now httpd
+systemctl enable --now httpd
+systemctl get-default
+systemctl set-default multi-user.target
+reboot
+mount
+touch hello
+mount -o remount,rw /
+touch hello
+systemctl list-units
+systemctl reboot
+mount
+systemctl list-units
+systemctl reboot
+vim /etc/default/grub 
+grub2-mkconfig -o /boot/grub2/grub.cfg
+reboot
+systemctl set-default graphical.target
+systemctl start graphical.target
+ls /dev/mapper/
+history
+system status sshd.service
+systemctl status sshd.service
+vim /etc/httpd/conf/httpd.conf 
+systemctl stop httpd
+systemctl start httpd
+systemctl status httpd
+getenforce
+setenforce permissive
+systemctl start httpd
+systemctl status httpd
+grep AVC /var/log/audit/audit.log 
+yum install net-tools
+
+grep AVC /var/log/audit/audit.log 
+man semanage-port
+semanage port -a -t http_port_t -p tcp 82
+systemctl stop httpd
+setenforce enforcing
+systemctl start httpd
+history
+grep sealert /var/log/messages
+sealert -l f221815e-95b7-4647-bae9-e621aa36255d | less
+systemctl list-unit-files
+rpm -qa | grep vdo
+man vdo
+vdo create --name=vdo0 --device=/dev/nvme0n3 --vdoLogicalSize=10T
+mkfs.xfs -K /dev/mapper/vdo0
+cd /usr/share/doc/vdo/
+ls
+cd examples/
+l;s
+ls
+cd systemd/
+ls
+countdown 11
+pwd
+vim /etc/fstab
+cd /run/systemd/generator/
+ls
+vim lvdata.mount
+cd -
+cat VDO.mount.example 
+mkdir /myvdo
+cp VDO.mount.example /etc/systemd/system/myvdo.mount
+vim /etc/systemd/system/myvdo.mount
+systemctl enable --now myvdo.mount
+systemctl status myvdo.mount
+vim /etc/systemd/system/myvdo.mount
+systemctl daemon-reload 
+systemctl enable --now myvdo.mount
+systemctl status myvdo.mount
+mount
+reboot
+df -h
+history
+cat /etc/systemd/system/myvdo.mount 
+history
+grep vdo /etc/fstab
+firewall-cmd --list-all
+firewall-cmd --get-all
+firewall-cmd --get-services
+cat /usr/lib/firewalld/services/http.xml 
+cp /usr/lib/firewalld/services/http.xml /etc/firewalld/services/sander.xml
+vim /etc/firewalld/services/sander.xml 
+firewall-cmd --get-services
+firewall-cmd --reload
+firewall-cmd --get-services
+firewall-cmd --add-service sander
+firewall-cmd --list-all
+firewall-cmd --add-service sander --permanent
+history
+firewall-cmd --list-zones
+firewall-cmd --get-zones
+reboot
+showmount -e 192.168.4.200
+showmount -e 192.168.4.201
+mount 192.168.4.201:/nfsshare /mnt
+mount
+cd mnt
+cd /mnt
+touch hello
+ls -l
+history
+vim /etc/fstab
+systemctl daemon-reload
+cd /run/systemd/generator/
+ls
+vim nfsdata.mount 
+history
+tail -3 /etc/fstab
+vim nfsdata.mount 
+man systemd.mount
+ls
+vim /etc/systemd/system/myvdo.mount 
+ssh root@192.168.4.200
+ssh root@192.168.4.201
+countdown 11
+cd
+cd /
+l;s
+ls
+yum search autofs
+yum install autofs
+vim /etc/auto.master
+vim /etc/auto.misc
+vim /etc/auto.master
+vim /etc/auto.nfsauto
+showmount -e 192.168.4.201
+ls
+systemctl enable --now autofs
+ls
+cd nfsauto/
+ls
+ls -a
+cd files
+pwd
+mount
+vim /etc/auto.master
+vim /etc/auto.ldap
+systemctl restart autofs
+cd /home/ldap/
+ls
+cd ldapuser1
+ls
+pwd
+history
+head -7 /etc/auto.master
+grep '^/' /etc/auto.master
+cat /etc/auto.nfsauto 
+cat /etc/auto.ldap 
+cd
+free -m
+fdisk /dev/nvme0n1
+mkswap /dev/nvme0n1p9
+vim /etc/fstab
+swapon -a
+free -m
+history
+countdown 24
+cat /etc/fstab
+sleep 15; countdown 23
+ln -s /etc/hosts /tmp/myhosts
+vim /etc/login.defs 
+cd /etc/skel/
+ls
+ls -a
+touch myfile
+find / -size +100M > /tmp/myfiles
+gs
+vgs
+lvcreate -n lv500 -L 500M vgnew
+mkfs.ext3 --help
+mkfs.ext3 -L myvolume /dev/vgnew/lv500
+lvcreate -n lv500 -L 500M vgdata
+mkfs.ext3 -L myvolume /dev/vgdata/lv500
+mkdir /myvol
+vim /etc/fstab
+mount -a
+vim /etc/fstab
+mount -a
+mount
+vim /etc/fstab
+yum search sealert
+yum provides */sealert
+id anna
+mkdir /data/newprofs
+cd /data
+chown anna:profs newprofs/
+chmod 1770 newprofs/
+ls -l
+logger HELLO
+tail /var/log/messages
+crontab -e
+logger --help
+history
+tail /var/log/messages
+less /var/log/messages
+crontab -e
+grep checking /var/log/messages
+exit
