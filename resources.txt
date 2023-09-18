@@ -1,0 +1,3 @@
+Linux Certification Labs workshop https://learning.oreilly.com/live-events/linux-certification-labs-workshop/0636920096425/
+RHCSA Challenge Labs (take when you think you're ready) https://learning.oreilly.com/playlists/b12ad4cc-6ad2-48ba-aecb-00a8158f6255/
+RHCSA Labs https://learning.oreilly.com/playlists/5eb6cb3b-1f3c-4b67-a3d4-c9a3d4aaaab9/
