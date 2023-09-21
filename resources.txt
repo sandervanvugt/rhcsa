@@ -1,3 +1,11 @@
-Linux Certification Labs workshop https://learning.oreilly.com/live-events/linux-certification-labs-workshop/0636920096425/
 RHCSA Challenge Labs (take when you think you're ready) https://learning.oreilly.com/playlists/b12ad4cc-6ad2-48ba-aecb-00a8158f6255/
 RHCSA Labs https://learning.oreilly.com/playlists/5eb6cb3b-1f3c-4b67-a3d4-c9a3d4aaaab9/
+
+upcoming live courses
+
+Linux Certification Labs workshop https://learning.oreilly.com/live-events/linux-certification-labs-workshop/0636920096425/
+Bash scripting: https://learning.oreilly.com/live-events/bash-shell-scripting-in-4-hours/0636920245810/
+Containers in 4 hours: https://learning.oreilly.com/live-events/containers-in-4-hours/0636920239529/
+Linux Security: https://learning.oreilly.com/live-events/linux-security-from-basics-to-guru/0636920095339/
+Linux troubleshooting: https://learning.oreilly.com/live-events/linux-troubleshooting-advanced-linux-techniques/0636920163169/
+Using Red Hat Hybdir Cloud Console: https://learning.oreilly.com/live-events/using-red-hat-hybrid-cloud-console/0636920096431/0636920096430/
